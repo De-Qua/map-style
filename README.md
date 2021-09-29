@@ -11,9 +11,14 @@ To work on these files:
 - Make it executable if it's not yet (`chmod +x maputnik`)
 - Launch Maputnik (`./maputnik`)
 
-To choose the json style file, either pass it as a parameter `./maputnik file dequa_barca.json` or choose "open" from the GUI when it starts.
+To choose the json style file, either pass it as a parameter `./maputnik --file dequa_barca.json` or choose "open" from the GUI when it starts.
+
+Add `--watch true` to change in real time the json file via an editor.
 
 Using default info maputnik exposes itself on the port 8000, but you should be able to change with `--port something_else`.
+
+## Fonts
+Install Inter Font (Google Font)
 
 ## Files
 We will have:
