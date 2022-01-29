@@ -1,8 +1,8 @@
 # map-style
 A repository to work on our JSON file for the map style with Maputnik
 
-## What is Maputnik?
-A tool to graphically change map layouts
+## [Maputnik](https://maputnik.github.io/)
+A tool to graphically change map layouts and see changes in real time.
 
 ## Instructions
 To work on these files:
@@ -31,8 +31,11 @@ Use the python code, we had problem using a normal editor for some formatting.
 It is easier than changing by hand and it avoids adding spaces or formatting in weird ways, which can cause problems.
 
 ## Fonts
-Install Inter Font (Google Font)
-
+Install Inter Font (Google Font) by [downloading from their web page](https://fonts.google.com/specimen/Inter) or via command line if you are on Linux with the command
+```
+sudo apt-get install fonts-inter
+```
+[it may need `sudo apt update` before](https://www.devmanuals.net/install/ubuntu/ubuntu-20-04-focal-fossa/installing-fonts-inter-on-ubuntu20-04.html).
 ## Files
 Files are divided in three folders:
 - **attempts** (all the tests we did and we will do)
