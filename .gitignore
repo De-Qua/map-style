@@ -1,3 +1,5 @@
 maputnik
 .DS_Store
 /maputnik
+outputs/
+.mypy_cache
