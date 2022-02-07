@@ -1,29 +1,21 @@
 {
   "version": 8,
-  "name": "Streets",
+  "name": "DeQua Barca",
   "metadata": {
-    "mapbox:type": "template",
-    "maptiler:copyright": "This style was generated on MapTiler Cloud. Usage outside of MapTiler Cloud requires valid OpenMapTiles Production Package: https://openmaptiles.com/production-package/ -- please contact us.",
     "openmaptiles:version": "3.x"
   },
   "center": [
     0,
     0
   ],
-  "zoom": 1,
   "bearing": 0,
-  "pitch": 0,
   "sources": {
-    "maptiler_attribution": {
-      "attribution": "<a href=\"https://www.maptiler.com/copyright/\" target=\"_blank\">&copy; MapTiler</a> <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">&copy; OpenStreetMap contributors</a>",
-      "type": "vector"
-    },
     "openmaptiles": {
       "type": "vector",
       "url": "https://tiles.dequa.it/api/tiles/2017-07-03_italy_venice/tiles.json"
     }
   },
-  "sprite": "https://tiles.dequa.it/api/maps/dequa_2022/sprite",
+  "sprite": "https://tiles.dequa.it/api/maps/dequa_barca/sprite",
   "glyphs": "https://tiles.dequa.it/api/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
@@ -61,26 +53,6 @@
         "fill-antialias": false,
         "fill-color": "rgba(155, 194, 149, 1)",
         "fill-opacity": 1
-      }
-    },
-    {
-      "id": "dequa_campi",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "filter": [
-        "all",
-        [
-          "==",
-          "$type",
-          "Polygon"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(255, 255, 255, 1)"
       }
     },
     {
@@ -136,132 +108,6 @@
       }
     },
     {
-      "id": "acqua_laguna",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "water",
-      "filter": [
-        "all",
-        [
-          "!=",
-          "brunnel",
-          "tunnel"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(160, 254, 235, 1)"
-      }
-    },
-    {
-      "id": "acqua_canali",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "waterway",
-      "minzoom": 11,
-      "maxzoom": 15,
-      "filter": [
-        "all",
-        [
-          "!=",
-          "brunnel",
-          "tunnel"
-        ]
-      ],
-      "layout": {
-        "line-cap": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(160, 254, 235, 1)",
-        "line-width": {
-          "base": 1.3,
-          "stops": [
-            [
-              13,
-              1.5
-            ],
-            [
-              20,
-              6
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "id": "acqua_canali_zoom",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "waterway",
-      "minzoom": 15,
-      "filter": [
-        "all",
-        [
-          "!=",
-          "brunnel",
-          "tunnel"
-        ]
-      ],
-      "layout": {
-        "line-cap": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(160, 254, 235, 1)",
-        "line-width": {
-          "base": 1.3,
-          "stops": [
-            [
-              13,
-              15
-            ],
-            [
-              20,
-              6
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "id": "acqua_canali_zoom-hard",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "waterway",
-      "minzoom": 17,
-      "filter": [
-        "all",
-        [
-          "!=",
-          "brunnel",
-          "tunnel"
-        ]
-      ],
-      "layout": {
-        "line-cap": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(160, 254, 235, 1)",
-        "line-width": {
-          "base": 1.3,
-          "stops": [
-            [
-              13,
-              30
-            ],
-            [
-              20,
-              6
-            ]
-          ]
-        }
-      }
-    },
-    {
       "id": "dequa_spiaggie",
       "type": "fill",
       "metadata": {
@@ -282,6 +128,26 @@
       },
       "paint": {
         "fill-color": "rgba(205, 255, 0, 1)"
+      }
+    },
+    {
+      "id": "strade_campi",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Polygon"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "rgba(255, 255, 255, 1)"
       }
     },
     {
@@ -306,6 +172,11 @@
           "class",
           "path",
           "pedestrian"
+        ],
+        [
+          "!=",
+          "name",
+          "Fondamenta del Ponte Lungo"
         ]
       ],
       "paint": {
@@ -330,11 +201,11 @@
       }
     },
     {
-      "id": "strade_calli_zoom",
+      "id": "strade_calli",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 16,
+      "minzoom": 0,
       "maxzoom": 24,
       "filter": [
         "all",
@@ -378,59 +249,20 @@
             ]
           ]
         },
-        "line-width": 10
-      }
-    },
-    {
-      "id": "strade_calli",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 0,
-      "maxzoom": 16,
-      "filter": [
-        "all",
-        [
-          "==",
-          "$type",
-          "LineString"
-        ],
-        [
-          "!in",
-          "brunnel",
-          "bridge",
-          "tunnel"
-        ],
-        [
-          "in",
-          "class",
-          "path",
-          "pedestrian"
+        "line-width": [
+          "interpolate",
+          [
+            "exponential",
+            2
+          ],
+          [
+            "zoom"
+          ],
+          13,
+          0.01,
+          20,
+          120
         ]
-      ],
-      "layout": {
-        "line-join": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
-        "line-dasharray": [
-          1,
-          0
-        ],
-        "line-width": 3,
-        "line-blur": {
-          "stops": [
-            [
-              0,
-              10
-            ],
-            [
-              3,
-              0
-            ]
-          ]
-        }
       }
     },
     {
@@ -479,6 +311,63 @@
             ]
           ]
         }
+      }
+    },
+    {
+      "id": "acqua_laguna",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "water",
+      "filter": [
+        "all",
+        [
+          "!=",
+          "brunnel",
+          "tunnel"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "rgba(160, 254, 235, 1)"
+      }
+    },
+    {
+      "id": "acqua_canali",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "waterway",
+      "minzoom": 11,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "!=",
+          "brunnel",
+          "tunnel"
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(160, 254, 235, 1)",
+        "line-width": [
+          "interpolate",
+          [
+            "exponential",
+            1.7
+          ],
+          [
+            "zoom"
+          ],
+          12,
+          0.1,
+          22,
+          350
+        ]
       }
     },
     {
@@ -1020,7 +909,7 @@
           0.6
         ],
         "text-size": 12,
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "text-color": "#666",
@@ -1118,7 +1007,7 @@
       }
     },
     {
-      "id": "road_label",
+      "id": "nomi_calli_campi",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "transportation_name",
@@ -1159,52 +1048,105 @@
       }
     },
     {
-      "id": "campi",
+      "id": "nomi_importanti",
       "type": "symbol",
       "source": "openmaptiles",
-      "source-layer": "transportation_name",
+      "source-layer": "place",
+      "maxzoom": 14,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "hamlet",
+          "island",
+          "islet",
+          "neighbourhood",
+          "suburb",
+          "town"
+        ],
+        [
+          "!=",
+          "name",
+          "San Sebastiano"
+        ]
+      ],
+      "layout": {
+        "text-field": "{name_en}",
+        "text-font": [
+          "Inter Medium"
+        ],
+        "text-letter-spacing": 0.03,
+        "text-max-width": 9,
+        "text-size": {
+          "base": 1.2,
+          "stops": [
+            [
+              12,
+              14
+            ],
+            [
+              15,
+              24
+            ]
+          ]
+        },
+        "text-transform": "none",
+        "text-offset": [
+          -1,
+          -2
+        ],
+        "text-allow-overlap": false,
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(60, 60, 59, 1)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-opacity": 1,
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "nomi_canali_importanti",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "waterway",
+      "minzoom": 8,
       "filter": [
         "any",
         [
           "==",
           "name",
-          "Campo Santa Margherita"
+          "Canal Grande"
         ],
         [
           "==",
           "name",
-          "Campo San Polo"
+          "Canale della Giudecca"
+        ],
+        [
+          "==",
+          "name",
+          "Canale di Cannaregio"
+        ],
+        [
+          "==",
+          "name",
+          "Bacino San Marco"
         ]
       ],
       "layout": {
-        "symbol-placement": "line",
-        "text-anchor": "center",
         "text-field": "{name}",
         "text-font": [
           "Inter Regular"
         ],
-        "text-offset": [
-          0,
-          0.15
-        ],
-        "text-size": {
-          "base": 1,
-          "stops": [
-            [
-              13,
-              24
-            ],
-            [
-              14,
-              26
-            ]
-          ]
-        },
-        "visibility": "visible"
+        "text-max-width": 5,
+        "text-size": 12,
+        "symbol-placement": "line"
       },
       "paint": {
-        "text-color": "rgba(60, 60, 59, 1)",
-        "text-halo-blur": 0.5,
+        "text-color": "rgba(1, 142, 109, 1)",
+        "text-halo-color": "rgba(255,255,255,0.7)",
         "text-halo-width": 1
       }
     },
@@ -1264,102 +1206,142 @@
       }
     },
     {
-      "id": "nomi_canali_importanti",
+      "id": "nomi_campi",
       "type": "symbol",
+      "metadata": {
+        "maputnik:comment": "Campo dell'arsenale non ha nome in questa mappa"
+      },
       "source": "openmaptiles",
-      "source-layer": "waterway",
-      "minzoom": 8,
+      "source-layer": "transportation_name",
+      "minzoom": 14,
+      "maxzoom": 16,
       "filter": [
         "any",
         [
           "==",
           "name",
-          "Canal Grande"
+          "Campo San Polo"
         ],
         [
           "==",
           "name",
-          "Canale della Giudecca"
+          "Piazza San Marco"
         ],
         [
           "==",
           "name",
-          "Canale di Cannaregio"
+          "Campo Santa Margherita"
         ],
         [
           "==",
           "name",
-          "Bacino San Marco"
+          "Fondamenta Zattere al Ponte Longo"
+        ],
+        [
+          "==",
+          "name",
+          "Piazzale Roma"
+        ],
+        [
+          "==",
+          "name",
+          "Campo del Ghetto Nuovo"
+        ],
+        [
+          "==",
+          "name",
+          "Ponte di Rialto"
+        ],
+        [
+          "==",
+          "name",
+          "Campo Santi Giovanni e Paolo"
+        ],
+        [
+          "==",
+          "name",
+          "Campo Santa Maria Formosa"
+        ],
+        [
+          "==",
+          "name",
+          "Campo San Pietro"
+        ],
+        [
+          "==",
+          "name",
+          "Fondamente Nove"
+        ],
+        [
+          "==",
+          "name",
+          "Campo Santo Stefano"
+        ],
+        [
+          "==",
+          "name",
+          "Campo San Giacomo dall'Orio"
+        ],
+        [
+          "==",
+          "name",
+          "Campo de l'Arsenal"
+        ],
+        [
+          "==",
+          "name",
+          "Campo dei Frari"
+        ],
+        [
+          "==",
+          "name",
+          "Fondamenta Santa Lucia"
+        ],
+        [
+          "==",
+          "name",
+          "Ponte de l'Accademia"
+        ],
+        [
+          "==",
+          "name",
+          "Strada Nova"
         ]
       ],
       "layout": {
+        "text-allow-overlap": false,
+        "text-ignore-placement": false,
+        "text-anchor": "center",
         "text-field": "{name}",
         "text-font": [
-          "Inter Regular"
+          "Roboto Regular"
         ],
-        "text-max-width": 5,
-        "text-size": 12,
-        "symbol-placement": "line"
-      },
-      "paint": {
-        "text-color": "rgba(1, 142, 109, 1)",
-        "text-halo-color": "rgba(255,255,255,0.7)",
-        "text-halo-width": 1
-      }
-    },
-    {
-      "id": "nomi_importanti",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "place",
-      "filter": [
-        "all",
-        [
-          "in",
-          "class",
-          "hamlet",
-          "island",
-          "islet",
-          "neighbourhood",
-          "suburb",
-          "town"
-        ]
-      ],
-      "layout": {
-        "text-field": "{name_en}",
-        "text-font": [
-          "Inter Medium"
+        "text-offset": [
+          0,
+          0.15
         ],
-        "text-letter-spacing": 0.03,
-        "text-max-width": 9,
         "text-size": {
-          "base": 1.2,
+          "base": 1,
           "stops": [
             [
               12,
-              14
+              13
             ],
             [
-              15,
-              24
+              16,
+              20
             ]
           ]
         },
-        "text-transform": "none",
-        "text-offset": [
-          -1,
-          -2
-        ],
-        "text-allow-overlap": false,
-        "visibility": "visible"
+        "visibility": "visible",
+        "icon-size": 1
       },
       "paint": {
         "text-color": "rgba(60, 60, 59, 1)",
-        "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-opacity": 1,
-        "text-halo-width": 1.2
+        "text-halo-blur": 0.5,
+        "text-halo-width": 1
       }
     }
   ],
-  "id": "streets"
+  "id": "dequa-barca"
 }
