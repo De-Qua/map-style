@@ -4,14 +4,14 @@ import os
 import sys
 
 ## This is the file you get from maputnik
-MAPUNTIK_STYLE = 'style_exported_from_maputnik.json'
+MAPUNTIK_STYLE = 'attempts/dequa_luca_style.json'
 if not os.path.exists(MAPUNTIK_STYLE):
     print(
         f"Which file should we use? Could not find '{MAPUNTIK_STYLE}' - please change name (line 7)")
 else:
 
     ### CHANGE THIS
-    NAME = 'mappa_dequa'
+    NAME = 'mappa_luca_08Feb'
     if len(sys.argv) > 1:
         NAME = sys.argv[1]
 
@@ -26,7 +26,7 @@ else:
     basic_data['layers'] = dequa_correct_data
     basic_data['name'] = NAME
     basic_data['id'] = NAME
-    basic_data['glyphs'] = "https://tiles.dequa.it/api/fonts/{fontstack}/{range}.pbf"
+    basic_data['glyphs'] = "https://tiles.dequa.it/fonts/{fontstack}/{range}.pbf"
     # Does it remain the same?
     # In the server, the files are in the sprites folder (not inside the styles/dequa_2022 folder)
     # but it seems to work
@@ -35,7 +35,7 @@ else:
     basic_data['sources']['openmaptiles']['url'] = "https://tiles.dequa.it/data/dequa_tiles.json"
 
     with open(f"attempts/style_{NAME}.json", 'w') as json_new:
-        json.dump(basic_data, json_new)
+        json.dump(basic_data, json_new, separators=(",", ":"))
 
     print(
         f"WARNING: output saved in attempts/style_{NAME}.json, if final version, move it to final")
