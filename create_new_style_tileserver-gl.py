@@ -4,7 +4,7 @@ import os
 import sys
 
 ## This is the file you get from maputnik
-MAPUNTIK_STYLE = 'final/base_canali.json'
+MAPUNTIK_STYLE = 'final/base_piedi_battello.json'
 if not os.path.exists(MAPUNTIK_STYLE):
     print(
         f"Which file should we use? Could not find '{MAPUNTIK_STYLE}' - please change name (line 7)")
