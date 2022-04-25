@@ -4,7 +4,7 @@ import os
 import sys
 
 ## This is the file you get from maputnik
-MAPUNTIK_STYLE = 'attempts/dequa_luca_style.json'
+MAPUNTIK_STYLE = 'final/base_canali.json'
 if not os.path.exists(MAPUNTIK_STYLE):
     print(
         f"Which file should we use? Could not find '{MAPUNTIK_STYLE}' - please change name (line 7)")
