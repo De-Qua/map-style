@@ -3,3 +3,4 @@ maputnik
 /maputnik
 outputs/
 .mypy_cache
+_tileserver_folder
