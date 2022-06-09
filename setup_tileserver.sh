@@ -1,6 +1,6 @@
 outputdir=_tileserver_folder
 curdir=$(pwd)
-cp tileserver_files $outputdir
+cp -r tileserver_files $outputdir
 cd $outputdir/fonts
 git clone https://github.com/openmaptiles/fonts
 mv inter fonts
@@ -10,3 +10,4 @@ node ./generate.js
 cd $curdir
 mv $outputdir/fonts/fonts/_output/* $outputdir/fonts
 rm -rf $outputdir/fonts/fonts
+rm -rf $outputdir/package-lock.json
