@@ -1,7 +1,7 @@
 {
   "options": {
     "paths": {
-      "root": "/home/dequa/tileserver",
+      "root": "/home/dequa/tiles/tileserver",
       "fonts": "fonts",
       "styles": "styles",
       "sprites": "sprites",
