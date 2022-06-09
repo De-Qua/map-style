@@ -1,5 +1,8 @@
 curdir=$(pwd)
-cd tileserver_files/fonts/fonts
+cd tileserver_files/fonts
+git clone https://github.com/openmaptiles/fonts
+mv inter fonts
+cd fonts
 npm install
 node ./generate.js
 cd $curdir
