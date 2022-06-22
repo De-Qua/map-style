@@ -24,11 +24,29 @@ Using default info maputnik exposes itself on the port 8000, but you should be a
 Once you are done changing styles on maputnik, export the JSON file via GUI and download it.
 
 ## Prepare for tileserver-gl
-Use the `create_new_style_tileserver-gl.py`. It can accept as input the name you want to give to the file (which will be used to set the `id` and `name` keys in the JSON).
-Plus you need to modify the python file to use the JSON file you just exported (line 7).
-Use the python code, we had problem using a normal editor for some formatting.
+Use the `create_new_style_tileserver-gl.py`
+```
+usage: create_new_style_tileserver-gl.py [-h] [-s STYLE] [-n NAME] [-id ID] [-o OUTPUT] [-p PREFIX] [style] [name]
 
-It is easier than changing by hand and it avoids adding spaces or formatting in weird ways, which can cause problems.
+positional arguments:
+  style                 The path of the Maputnik style
+  name                  The name of the new style
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -s STYLE, --style STYLE
+                        The path of the Maputnik style
+  -n NAME, --name NAME  The name of the new style
+  -id ID, --id ID       The id of the new style (default: the given name)
+  -o OUTPUT, --output OUTPUT
+                        The output folder of the new style (default: attempts)
+  -p PREFIX, --prefix PREFIX
+                        The prefix of the new style (default: style_)
+```
+It can accept as positional arguments the style file and the new name of the style.
+These arguments can also be passed as optional arguments with the key/values pairs, if they are not given the program will ask for them.
+Other optional arguments are the id, which default is the given name (already cleaned by spaces and weird characters), the output folder and the prefix of the new file.
+The new generated file is saved in the output folder as {PREFIX}{ID}.json
 
 ## Fonts
 Install Inter Font (Google Font) by [downloading from their web page](https://fonts.google.com/specimen/Inter) or via command line if you are on Linux with the command
